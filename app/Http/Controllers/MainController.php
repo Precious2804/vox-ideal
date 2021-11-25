@@ -41,7 +41,8 @@ class MainController extends Controller
 
     public function upload()
     {
-        return view('upload');
+        $user = ['user'=>User::where('user_id', Auth::user()->user_id)->first()];
+        return view('upload')->with($user);
     }
 
     public function contact()
