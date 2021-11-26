@@ -2,7 +2,17 @@
 @section('content')
 
 <section>
+    @if($articles == "")
+    <div class="no-post">
+        <div class="alert alert-danger" style="text-align: center;">
+            <br><br><br>
+            <p style="font-weight: bolder;">Sorry! There are no articles currently to be displayed on this blog</p>
+            <br><br><br>
+        </div>
+    </div>
+    @else
     <div class="grid-container">
+
         @foreach($articles as $item)
         <div class="grid-content">
             <a href="{{route('blog_detail')}}?article={{$item->unique_id}}">
@@ -34,6 +44,7 @@
     <div class="footer-load">
         {!! $articles->links() !!}
     </div>
+    @endif
 </section>
 
 @stop

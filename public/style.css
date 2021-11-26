@@ -374,6 +374,12 @@ footer {
         margin: 0;
     }
 }
+.no-post{
+    padding-top: 150px;
+    padding-bottom: 150px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
