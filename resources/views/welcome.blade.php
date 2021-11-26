@@ -2,7 +2,7 @@
 @section('content')
 
 <section>
-    @if($articles == "")
+    @if($articles->isEmpty())
     <div class="no-post">
         <div class="alert alert-danger" style="text-align: center;">
             <br><br><br>
@@ -12,7 +12,6 @@
     </div>
     @else
     <div class="grid-container">
-
         @foreach($articles as $item)
         <div class="grid-content">
             <a href="{{route('blog_detail')}}?article={{$item->unique_id}}">
