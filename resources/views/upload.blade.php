@@ -4,8 +4,13 @@
 <div id="contact">
     <h4> Upload a New Article</h4>
     <div class="form-container">
-        <form action="{{route('upload_now')}}" method="POST">
+        <form action="{{route('upload_now')}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @if(Session::get('uploaded'))
+            <div class="alert alert-success">
+                {{Session::get('uploaded')}}
+            </div>
+            @endif
             <div>
                 <label for="name">Subject</label>
                 <div class="form-group">
@@ -26,6 +31,7 @@
                 <label for="">Upload Image</label>
                 <div class="form-group">
                     <input type="file" class="form-control" name="image">
+                    <span class="text-danger"> @error('image') {{$message}} @enderror </span>
                 </div>
             </div>
 

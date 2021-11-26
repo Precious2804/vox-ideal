@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogMessages;
 use App\Models\User;
 use App\Traits\Generics;
 use Illuminate\Http\Request;
@@ -41,7 +42,7 @@ class MainController extends Controller
 
     public function upload()
     {
-        $user = ['user'=>User::where('user_id', Auth::user()->user_id)->first()];
+        $user = ['user' => User::where('user_id', Auth::user()->user_id)->first()];
         return view('upload')->with($user);
     }
 
@@ -49,14 +50,36 @@ class MainController extends Controller
     {
         return view('contact');
     }
-    public function blog_detail()
+    public function blog_detail(Request $req)
     {
-        return view('blog_detail');
+        $single_blog = ['single_blog' => BlogMessages::where('unique_id', $req->article)->first()];
+        return view('blog_detail')->with($single_blog);
     }
 
     public function upload_now(Request $req)
     {
-        return $req->subject;
+        $req->validate([
+            'subject' => 'required|max:255',
+            'content' => 'required',
+            'image' => 'required|mimes:png,jpg,jpeg,gif,svg,jfif'
+        ]);
+        if ($req->file()) {
+            $name = time() . '_' . $req->image->getClientOriginalName();
+            $filePath = $req->file('image')->storeAs('uploads', $name, 'public');
+            $storePhoto = '/storage/' . $filePath;
+
+            $wrapped = mb_strimwidth($req->content, 0, 250);
+
+            BlogMessages::create([
+                'unique_id' => $this->createUniqueID('blog_messages', 'unique_id'),
+                'subject' => $req->subject,
+                'content' => $req->content,
+                'posted_by' => "Admin",
+                'half_content' => $wrapped,
+                'image' => $storePhoto
+            ]);
+        }
+        return back()->with('uploaded', "New Article has been uploaded successfully");
     }
     //logout method
     public function logout()

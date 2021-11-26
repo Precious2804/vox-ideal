@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Models\BlogMessages;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $articles = ['articles'=>BlogMessages::all()];
+    return view('welcome')->with($articles);
 });
 
 Route::get('/login', [MainController::class, 'login'])->name('login');

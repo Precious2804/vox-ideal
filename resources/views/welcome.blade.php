@@ -3,161 +3,32 @@
 
 <section>
     <div class="grid-container">
+        @foreach($articles as $item)
         <div class="grid-content">
-            <a href="blogDetail.html">
-                <div class="grid-img" style="background: url(./assets/blog-img.png); width: 100%; height: 400px; ">
+            <a href="{{route('blog_detail')}}?article={{$item->unique_id}}">
+                <!-- <div class="grid-img" style="background: url(); background-repeat:no-repeat; background-position:right top; width: 100%; height: 400px; ">
+                </div> -->
+                <div class="grid-img">
+                    <img src="{{$item->image}}" alt="">
                 </div>
             </a>
 
             <div class="grid-content">
-                <h3>
-                    Our Vox Ideal Story: What is Vox ideal, And
-                    What we do?
-                </h3>
-
+                <a href="{{route('blog_detail')}}?article={{$item->unique_id}}">
+                    <h3>
+                        {{$item->subject}}
+                    </h3>
+                </a>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    Tempore commodi asperiores fuga quaerat laudantium
-                    nostrum repellendus nobis quo ratione error!
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
+                    {{$item->half_content}}
                     ...
-                    <a href="#">
+                    <a href="{{route('blog_detail')}}?article={{$item->unique_id}}">
                         Read more
                     </a>
                 </p>
             </div>
         </div>
-
-        <div class="grid-content">
-            <a href="#">
-                <div class="grid-img" style="background: url(./assets/blog-img.png); width: 100%; height: 400px; ">
-                </div>
-            </a>
-
-            <div class="grid-content">
-                <h3>
-                    Our Vox Ideal Story: What is Vox ideal, And
-                    What we do?
-                </h3>
-
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    Tempore commodi asperiores fuga quaerat laudantium
-                    nostrum repellendus nobis quo ratione error!
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    ...
-                    <a href="#">
-                        Read more
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <div class="grid-content">
-            <a href="blogDetail.html">
-                <div class="grid-img" style="background: url(./assets/blog-img.png); width: 100%; height: 400px; ">
-                </div>
-            </a>
-
-            <div class="grid-content">
-                <h3>
-                    Our Vox Ideal Story: What is Vox ideal, And
-                    What we do?
-                </h3>
-
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    Tempore commodi asperiores fuga quaerat laudantium
-                    nostrum repellendus nobis quo ratione error!
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    ...
-                    <a href="#">
-                        Read more
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <div class="grid-content">
-            <a href="#">
-                <div class="grid-img" style="background: url(./assets/blog-img.png); width: 100%; height: 400px; ">
-                </div>
-            </a>
-
-            <div class="grid-content">
-                <h3>
-                    Our Vox Ideal Story: What is Vox ideal, And
-                    What we do?
-                </h3>
-
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    Tempore commodi asperiores fuga quaerat laudantium
-                    nostrum repellendus nobis quo ratione error!
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    ...
-                    <a href="#">
-                        Read more
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <div class="grid-content">
-            <a href="#">
-                <div class="grid-img" style="background: url(./assets/blog-img.png); width: 100%; height: 400px; ">
-                </div>
-            </a>
-
-            <div class="grid-content">
-                <h3>
-                    Our Vox Ideal Story: What is Vox ideal, And
-                    What we do?
-                </h3>
-
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    Tempore commodi asperiores fuga quaerat laudantium
-                    nostrum repellendus nobis quo ratione error!
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    ...
-                    <a href="#">
-                        Read more
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <div class="grid-content">
-            <a href="#">
-                <div class="grid-img" style="background: url(./assets/blog-img.png); width: 100%; height: 400px; ">
-                </div>
-            </a>
-
-            <div class="grid-content">
-                <h3>
-                    Our Vox Ideal Story: What is Vox ideal, And
-                    What we do?
-                </h3>
-
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    Tempore commodi asperiores fuga quaerat laudantium
-                    nostrum repellendus nobis quo ratione error!
-                    Similique aut quam debitis maiores explicabo, beatae ad accusantium ipsum?
-                    ...
-                    <a href="#">
-                        Read more
-                    </a>
-                </p>
-            </div>
-        </div>
+        @endforeach
     </div>
 
     <div class="footer-load">
