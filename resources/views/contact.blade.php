@@ -7,7 +7,13 @@
     </p>
 
     <div class="form-container">
-        <form action="">
+        <form action="{{route('contact_now')}}" method="POST">
+            @csrf
+            @if(Session::get('sent'))
+            <div class="alert alert-success">
+                {{Session::get('sent')}}
+            </div>
+            @endif
             <div>
                 <label for="name">
                     Name
@@ -15,10 +21,10 @@
 
                 <div class="form-name-flex">
                     <div>
-                        <input type="text" placeholder="First Name">
+                        <input type="text" placeholder="First Name" name="fname">
                     </div>
                     <div>
-                        <input type="text" placeholder="Last Name">
+                        <input type="text" placeholder="Last Name" name="lname">
                     </div>
                 </div>
             </div>
@@ -27,7 +33,7 @@
                 <label for="email">
                     Email
                 </label>
-                <input type="email">
+                <input type="email" name="email">
             </div>
 
             <div>
@@ -37,7 +43,7 @@
             </div>
 
             <div>
-                <button class="send-msg-btn">
+                <button class="send-msg-btn" type="submit">
                     Send Message
                 </button>
             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogMessages;
+use App\Models\ContactMessages;
 use App\Models\User;
 use App\Traits\Generics;
 use Illuminate\Http\Request;
@@ -69,7 +70,6 @@ class MainController extends Controller
             $storePhoto = '/storage/' . $filePath;
 
             $wrapped = mb_strimwidth($req->content, 0, 250);
-
             BlogMessages::create([
                 'unique_id' => $this->createUniqueID('blog_messages', 'unique_id'),
                 'subject' => $req->subject,
@@ -86,5 +86,17 @@ class MainController extends Controller
     {
         Auth::logout();
         return redirect('/login');
+    }
+
+    public function contact_now(Request $req){
+        ContactMessages::create([
+            'message_id'=>$this->createUniqueID('contact_messages', 'message_id'),
+            'fname'=>$req->fname,
+            'lname'=>$req->lname,
+            'email'=>$req->email,
+            'message'=>$req->message
+        ]);
+
+        return back()->with('sent', "Message was Sent Successfully. Thank you!");
     }
 }

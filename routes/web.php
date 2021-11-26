@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $articles = ['articles'=>BlogMessages::all()];
+    $articles = ['articles'=>BlogMessages::paginate(5)];
     return view('welcome')->with($articles);
 });
 
 Route::get('/login', [MainController::class, 'login'])->name('login');
 Route::post('/do_login', [MainController::class, 'do_login'])->name('do_login');
+Route::post('/contact_now', [MainController::class, 'contact_now'])->name('contact_now');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 Route::get('/blog_detail', [MainController::class, 'blog_detail'])->name('blog_detail');
 

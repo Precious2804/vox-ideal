@@ -32,6 +32,7 @@
     </div>
 
     <div class="footer-load">
+        {!! $articles->links() !!}
     </div>
 </section>
 
