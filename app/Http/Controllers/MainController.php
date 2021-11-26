@@ -67,7 +67,7 @@ class MainController extends Controller
         if ($req->file()) {
             $name = time() . '_' . $req->image->getClientOriginalName();
             $filePath = $req->file('image')->storeAs('uploads', $name, 'public');
-            $storePhoto = '/storage/' . $filePath;
+            $storePhoto = $filePath;
             // $storePhoto =  $filePath;
 
             $wrapped = mb_strimwidth($req->content, 0, 250);
