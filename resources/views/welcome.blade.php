@@ -18,7 +18,7 @@
                 <!-- <div class="grid-img" style="background: url(); background-repeat:no-repeat; background-position:right top; width: 100%; height: 400px; ">
                 </div> -->
                 <div class="grid-img">
-                    <img src="{!! $item->image !!}" alt="">
+                    <img src="{{asset($item->image)}}" alt="">
                 </div>
             </a>
 
