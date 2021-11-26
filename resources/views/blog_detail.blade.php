@@ -16,7 +16,7 @@
         <!-- <div class="single-blog" style="background: url(./assets/blog-img.png); width: 100%; height: 400px; ">
         </div> -->
         <div class="single-blog">
-            <img src="{{asset($single_blog['image'])}}" alt="" style="width: 100%;">
+            <img src="{!! $single_blog['image'] !!}" alt="" style="width: 100%;">
         </div>
 
         <div class="single-blog-detail">
