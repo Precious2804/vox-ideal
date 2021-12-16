@@ -22,7 +22,12 @@
             <div>
                 <label for="name">Content</label>
                 <div class="form-group">
-                    <textarea name="content" class="form-control" id="" cols="30" rows="10" placeholder="Write the contents of the message here"></textarea>
+                    <div>
+                        <textarea cols="80" rows="10" id="content" name="content" class="form-control"></textarea>
+                        <script type="text/javascript">
+                            CKEDITOR.replace('articleContent');
+                        </script>
+                    </div>
                     <span class="text-danger"> @error('content') {{$message}} @enderror </span>
                 </div>
             </div>

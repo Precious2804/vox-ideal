@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $articles = ['articles'=>BlogMessages::paginate(5)];
+    $articles = ['articles'=>BlogMessages::paginate(6)];
     return view('welcome')->with($articles);
 });
 
