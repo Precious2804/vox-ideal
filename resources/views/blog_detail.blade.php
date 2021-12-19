@@ -9,9 +9,9 @@
             {{$single_blog['subject']}}
         </h1>
 
-        <p>
+        <pre style="font-weight: bolder;">
             {{$single_blog['half_content']}}
-        </p>
+        </pre>
 
         <!-- <div class="single-blog" style="background: url(./assets/blog-img.png); width: 100%; height: 400px; ">
         </div> -->
@@ -20,9 +20,9 @@
         </div>
 
         <div class="single-blog-detail">
-            <p>
+            <pre style="font-weight: bold;">
                 {{$single_blog['content']}}
-            </p>
+            </pre>
         </div>
     </div>
 </section>

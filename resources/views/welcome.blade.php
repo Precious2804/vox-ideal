@@ -28,7 +28,7 @@
                         {{$item->subject}}
                     </h3>
                 </a>
-                <p>
+                <p style="font-weight: bold;">
                     {{$item->half_content}}
                     ...
                     <a href="{{route('blog_detail')}}?article={{$item->unique_id}}">
